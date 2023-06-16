@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('agenda.db')
+conn = sqlite3.connect('universidade.db')
 
 cursor = conn.cursor()
 
@@ -13,6 +13,7 @@ login TEXT NOT NULL,
 senha TEXT NOT NULL
 );
 """)
+print("Tabela 'usuarios' criada com sucesso.")
 
 cursor.execute("""
 CREATE TABLE cursos (
@@ -21,6 +22,7 @@ nome TEXT NOT NULL,
 descr TEXT NOT NULL
 );
 """)
+print("Tabela 'cursos' criada com sucesso.")
 
 cursor.execute("""
 CREATE TABLE disciplinas (
@@ -31,6 +33,7 @@ curso TEXT NOT NULL,
 sala TEXT NOT NULL
 );
 """)
+print("Tabela 'disciplinas' criada com sucesso.")
 
 cursor.execute("""
 CREATE TABLE salas (
@@ -39,5 +42,7 @@ numSala INTEGER NOT NULL,
 andar INTEGER NOT NULL
 );
 """)
+print("Tabela 'salas' criada com sucesso.")
 
+cursor.close()
 conn.close()
