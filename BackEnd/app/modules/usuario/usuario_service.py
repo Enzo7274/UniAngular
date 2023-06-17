@@ -13,12 +13,12 @@ class UsuarioService(BaseDao):
         return self.query("SELECT * FROM usuarios")
     
     def save(self, usuario):
-        params = [usuario['nome'],usuario['email'],usuario['telefone']]
-        return self.execute_dml("INSERT INTO usuarios (nome, email, telefone) VALUES (?,?,?)", params)
+        params = [usuario['email'],usuario['nome'],usuario['login'],usuario['senha']]
+        return self.execute_dml("INSERT INTO usuarios (email, nome, login, senha) VALUES (?,?,?,?)", params)
     
     def update(self,usuario):
-        params = [usuario['nome'],usuario['email'],usuario['telefone'],usuario['id']]
-        return self.execute_dml("UPDATE usuarios SET nome = ?, email=?,telefone=? WHERE id=?", params)
+        params = [usuario['email'],usuario['nome'],usuario['login'],usuario['senha'],usuario['id']]
+        return self.execute_dml("UPDATE usuarios SET email = ?, nome=?, login=?, senha=?, WHERE id=?", params)
     
     def remove(self, id):
         params = [id]

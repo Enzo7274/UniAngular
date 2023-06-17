@@ -21,7 +21,8 @@ def get_usuario(id):
                     usuarioObj["id"]=usuario[0]
                     usuarioObj["nome"]=usuario[1]
                     usuarioObj["email"]=usuario[2]
-                    usuarioObj["telefone"]=usuario[3]
+                    usuarioObj["login"]=usuario[3]
+                    usuarioObj["senha"]=usuario[4]
                     return jsonify(usuarioObj)
                 return {"message":"Usuário não localizado"},500
             else:
@@ -46,7 +47,8 @@ def get_usuarios():
                         usuarioObj["id"]=usuario[0]
                         usuarioObj["nome"]=usuario[1]
                         usuarioObj["email"]=usuario[2]
-                        usuarioObj["telefone"]=usuario[3]
+                        usuarioObj["login"]=usuario[3]
+                        usuarioObj["senha"]=usuario[4]
                         listaUsuarios.append(usuarioObj)
                     return jsonify(listaUsuarios)
                 else:
