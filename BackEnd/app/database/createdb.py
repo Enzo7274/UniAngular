@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('universidade.db')
+conn = sqlite3.connect('./BackEnd/app/database/universidade.db')
 
 cursor = conn.cursor()
 
@@ -19,7 +19,7 @@ cursor.execute("""
 CREATE TABLE cursos (
 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 nome TEXT NOT NULL,
-descr TEXT NOT NULL
+dscr TEXT NOT NULL
 );
 """)
 print("Tabela 'cursos' criada com sucesso.")

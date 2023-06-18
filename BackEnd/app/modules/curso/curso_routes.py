@@ -20,7 +20,7 @@ def get_curso(id):
                     cursoObj = {}
                     cursoObj["id"]=curso[0]
                     cursoObj["nome"]=curso[1]
-                    cursoObj["descr"]=curso[2]
+                    cursoObj["dscr"]=curso[2]
                     return jsonify(cursoObj)
                 return {"message":"Curso não localizado"},500
             else:
@@ -44,7 +44,7 @@ def get_cursos():
                         cursoObj = {}
                         cursoObj["id"]=curso[0]
                         cursoObj["nome"]=curso[1]
-                        cursoObj["descr"]=curso[2]
+                        cursoObj["dscr"]=curso[2]
                         listaCursos.append(cursoObj)
                     return jsonify(listaCursos)
                 else:
