@@ -30,14 +30,14 @@ def get_curso(id):
     except Exception as e:
         return{"message":str(e)},500
 
-@curso_routes.route("/api/v1/curso")
+@curso_routes.route("/api/v1/cursos")
 @cross_origin()
 def get_cursos():
     try:
         if'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                cursos = cursoDAO.getCurso()
+                cursos = cursoDAO.getCursos()
                 listaCursos=[]
                 if len(cursos) > 0:
                     for curso in cursos:

@@ -32,14 +32,14 @@ def get_disciplina(id):
     except Exception as e:
         return{"message":str(e)},500
 
-@disciplina_routes.route("/api/v1/disciplina")
+@disciplina_routes.route("/api/v1/disciplinas")
 @cross_origin()
 def get_disciplinas():
     try:
         if'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                disciplinas = disciplinaDAO.getDisciplina()
+                disciplinas = disciplinaDAO.getDisciplinas()
                 listaDisciplinas=[]
                 if len(disciplinas) > 0:
                     for disciplina in disciplinas:
