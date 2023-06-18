@@ -1,0 +1,34 @@
+<!-- Barra de Pesquisa -->
+<form class="p-2 mb-2 bg-body-tertiary border-bottom">
+      <input type="search" class="form-control" autocomplete="false" placeholder="Digite o curso...">
+</form>
+<!-- Tabela -->
+<div class="table-responsive small">
+    
+    <!-- Selecionar Curso -->
+    <select #cursoSelecionado (change)="onChangeList($event)">
+        <option *ngFor="let curso of cursos" 
+        [value]="curso.nome"
+        >
+        {{curso.nome}}
+        </option>
+    </select>
+    <br>
+    <!-- Disciplinas -->
+    {{ cursoSelecionado.value }}
+    <br>
+    ID do curso: {{ idCursoSelecionado }}
+    <li *ngFor="let id of cursos;"> {{id}}</li>
+
+    
+
+    <table class="table table-striped table-sm">
+    <!--    <ng-container *ngFor="let curso of cursos">
+            <td *ngFor="let item of curso.items">{{item}}
+            </td>
+            <td>
+            <tr *ngFor="let sala of curso.salas"><td>{{sala}}</tr>
+            </td>
+        </ng-container>
+        -->
+    </table>
