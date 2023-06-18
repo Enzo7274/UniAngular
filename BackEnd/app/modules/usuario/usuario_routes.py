@@ -8,7 +8,7 @@ import json
 usuario_routes = Blueprint("usuario", __name__)
 usuarioDAO = UsuarioService()
 
-@usuario_routes.route("/api/v1/usuario/<string:id>")
+@usuario_routes.route("/api/v1/usuario/<string:id>", methods=['GET'])
 @cross_origin()
 def get_usuario(id):
     try:
@@ -19,8 +19,8 @@ def get_usuario(id):
                 if usuario != None:
                     usuarioObj = {}
                     usuarioObj["id"]=usuario[0]
-                    usuarioObj["nome"]=usuario[1]
-                    usuarioObj["email"]=usuario[2]
+                    usuarioObj["email"]=usuario[1]
+                    usuarioObj["nome"]=usuario[2]
                     usuarioObj["login"]=usuario[3]
                     usuarioObj["senha"]=usuario[4]
                     return jsonify(usuarioObj)
@@ -32,7 +32,7 @@ def get_usuario(id):
     except Exception as e:
         return{"message":str(e)},500
 
-@usuario_routes.route("/api/v1/usuario")
+@usuario_routes.route("/api/v1/usuarios", methods=['GET'])
 @cross_origin()
 def get_usuarios():
     try:
@@ -45,8 +45,8 @@ def get_usuarios():
                     for usuario in usuarios:
                         usuarioObj = {}
                         usuarioObj["id"]=usuario[0]
-                        usuarioObj["nome"]=usuario[1]
-                        usuarioObj["email"]=usuario[2]
+                        usuarioObj["email"]=usuario[1]
+                        usuarioObj["nome"]=usuario[2]
                         usuarioObj["login"]=usuario[3]
                         usuarioObj["senha"]=usuario[4]
                         listaUsuarios.append(usuarioObj)

@@ -13,12 +13,12 @@ class CursoService(BaseDao):
         return self.query("SELECT * FROM cursos")
     
     def save(self, curso):
-        params = [curso['nome'],curso['descr']]
-        return self.execute_dml("INSERT INTO cursos (nome, descr) VALUES (?,?)", params)
+        params = [curso['nome'],curso['dscr']]
+        return self.execute_dml("INSERT INTO cursos (nome, dscr) VALUES (?,?)", params)
     
     def update(self,curso):
-        params = [curso['nome'],curso['descr'],curso['id']]
-        return self.execute_dml("UPDATE cursos SET nome = ?, descr=? WHERE id=?", params)
+        params = [curso['nome'],curso['dscr'],curso['id']]
+        return self.execute_dml("UPDATE cursos SET nome = ?, dscr=? WHERE id=?", params)
     
     def remove(self, id):
         params = [id]

@@ -15,7 +15,7 @@ class BaseDao:
         self.connect()
         self.cur.execute(query, (params))
         contato = self.cur.fetchone()
-        self.disconect()
+        self.disconnect()
         return contato
     
     def query(self,query):
