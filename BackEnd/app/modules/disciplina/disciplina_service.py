@@ -18,7 +18,7 @@ class DisciplinaService(BaseDao):
     
     def update(self,disciplina):
         params = [disciplina['nome'],disciplina['dscr'],disciplina['curso'],disciplina['sala'],disciplina['id']]
-        return self.execute_dml("UPDATE disciplinas SET nome = ?, dscr=?, curso=?, sala=?, WHERE id=?", params)
+        return self.execute_dml("UPDATE disciplinas SET nome = ?, dscr=?, curso=?, sala=? WHERE id=?", params)
     
     def remove(self, id):
         params = [id]

@@ -18,7 +18,7 @@ class UsuarioService(BaseDao):
     
     def update(self,usuario):
         params = [usuario['email'],usuario['nome'],usuario['login'],usuario['senha'],usuario['id']]
-        return self.execute_dml("UPDATE usuarios SET email = ?, nome=?, login=?, senha=?, WHERE id=?", params)
+        return self.execute_dml("UPDATE usuarios SET email = ?, nome=?, login=?, senha=? WHERE id=?", params)
     
     def remove(self, id):
         params = [id]

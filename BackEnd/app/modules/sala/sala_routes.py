@@ -74,6 +74,25 @@ def save():
     except Exception as e:
         return {"message":str(e)},500
 
+@sala_routes.route("/api/v1/sala", methods=["PUT"])
+def update_sala():
+    try:
+        if 'Authorization' in request.headers:
+            decoded_token = jwtDecode(request.headers['Authorization'])
+            if('username' in decoded_token):
+                    if request.json and "sala" in request.json:
+                        sala = request.json["sala"]
+                        salaDAO.update(sala)
+                        return {"message":"Sala atualizado com sucesso"}, 200
+                    else:
+                        return {"message":"O campo sala está vazio"}, 500
+            else:
+                    return {"message":"Sem permissão"},500
+        else:
+                return {"message":"Sem permissão"},500
+    except Exception as e:
+        return {"message":str(e)},500
+
 @sala_routes.route("/api/v1/sala/<string:id>", methods=['DELETE'])
 @cross_origin()
 def remove(id):

@@ -18,7 +18,7 @@ class SalaService(BaseDao):
     
     def update(self,sala):
         params = [sala['numSala'],sala['andar'],sala['id']]
-        return self.execute_dml("UPDATE salas SET numSala = ?, andar=?, WHERE id=?", params)
+        return self.execute_dml("UPDATE salas SET numSala = ?, andar=? WHERE id=?", params)
     
     def remove(self, id):
         params = [id]
