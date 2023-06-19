@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Curso } from '../curso';
+import { Cursos } from '../lista-cursos';
+import { Disciplina } from '../disciplina';
+import { Disciplinas } from '../lista-disciplinas';
+import { Sala } from '../sala';
+import { Salas } from '../lista-salas';
 
 @Component({
   selector: 'app-tabela',
@@ -6,53 +12,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabela.component.css']
 })
 export class TabelaComponent {
-  cursos = [{
-      "id": 1,
-      "nome": "Análise e Desenvolvimento de Sistemas",
-      "descr": "Técnologo como Pedreiro Digital",
-      "discp": [1, 2]
-    },
-    {
-      "id": 2,
-      "nome": "Engenharia de Computação",
-      "descr": "Mestre de Obras Digital",
-      "discp": [2]
-    },
-  ];
+ 
+  cursos = Cursos;
+  cursoEscolhido?: Curso;
+  disciplinas = Disciplinas;
+  salas = Salas;
 
-  disciplinas = [{
-      "id": 1,
-      "nome": "Tecnologias da Web",
-      "sala": "15"
-    },
-    {
-      "id": 2,
-      "nome": "Programação Orientada a Objetos",
-      "sala": "26"
-    },
- ];
-  salas = [{
-      "id": 1,
-      "numero": "15",
-      "andar": "2"
-    },
-    {
-      "id": 2,
-      "numero": "26",
-      "andar": "3"
-    },
-  ];
-
-  cursoSelecionado = "";
-  idCursoSelecionado = 0;
-  listaDisciplinas = [];
-
-  onChangeList(event: any) {
-    this.cursoSelecionado = (<HTMLSelectElement>event.target).value;
-    this.idCursoSelecionado = (<HTMLSelectElement>event.target).selectedIndex;
-    let totalDiscp = this.cursos.indexOf;
-    console.log(totalDiscp);
-    //for (i=0;i<)
-    //this.listaDisciplinas
+  onSelect(curso: Curso): void {
+    // altera o curso selecionado
+    this.cursoEscolhido = curso;
   }
+
+
 }
