@@ -1,18 +1,39 @@
 <form>
-<label for="campoLogin">Login: </label>
-<input 
-type="text"
-id="campoLogin"
-class="form-control"
->
-<label for="campoSenha">Senha: </label>
-<input
-type="password"
-id="campoSenha"
-class="form-control"
->
-
-<button id="botaoLogin" class="btn btn-primary">Login</button>
-<button id="botaoSair" class="btn btn-primary">Sair</button>
-
+    <div class="container-fluid">
+        
+  <table>
+    <tr>
+        <td>
+            <label for="campoLogin">Login: </label>
+        </td>
+        <td>
+            <label for="campoSenha">Senha: </label>         
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input 
+            type="text"
+            id="campoLogin"
+            class="form-control"
+        >
+        </td>
+        <td>
+            <input
+            type="password"
+            id="campoSenha"
+            class="form-control"
+        >   
+        </td>
+        <td>
+            <button id="botaoLogin" class="btn btn-primary" (click)="aoClicarLogin()">Login</button>
+            <button id="botaoSair" class="btn btn-primary"   (click)="aoClicarSair()">Sair</button>
+        </td>
+        <td>
+            <button id="botaoDashboard" class="btn btn-primary" (click)="aoClicarDashboard()">Usuários</button>
+            <button id="botaoEditarCursos" class="btn btn-primary"  (click)="aoClicarEditarCursos()">Cursos</button>
+        </td>
+    </tr>
+</table>
+</div>
 </form>

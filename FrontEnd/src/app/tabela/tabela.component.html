@@ -1,34 +1,58 @@
-<!-- Barra de Pesquisa -->
+<!-- Barra de Pesquisa
 <form class="p-2 mb-2 bg-body-tertiary border-bottom">
       <input type="search" class="form-control" autocomplete="false" placeholder="Digite o curso...">
-</form>
+</form> -->
 <!-- Tabela -->
 <div class="table-responsive small">
     
-    <!-- Selecionar Curso -->
-    <select #cursoSelecionado (change)="onChangeList($event)">
-        <option *ngFor="let curso of cursos" 
-        [value]="curso.nome"
-        >
-        {{curso.nome}}
-        </option>
-    </select>
-    <br>
-    <!-- Disciplinas -->
-    {{ cursoSelecionado.value }}
-    <br>
-    ID do curso: {{ idCursoSelecionado }}
-    <li *ngFor="let id of cursos;"> {{id}}</li>
-
     
+    <!-- Selecionar Curso -->
+    <h2>Cursos</h2>
+    <ul class="cursos">
+    <li *ngFor="let curso of cursos">
+        <button [class.selected]="curso === cursoEscolhido" type="button" (click)="onSelect(curso)">
+        <span class="name">{{curso.nome}}</span>
+        </button>
+    </li>
+    </ul>   
 
+    <div *ngIf="cursoEscolhido">
+        <h2>{{cursoEscolhido.nome | uppercase}}</h2>
+        <div>{{cursoEscolhido.descr}}</div>
+
+        <table>
+            <tr>
+                <th>Disciplina</th>
+                <th>Descrição</th>
+                <th>Sala</th>
+                <th>Andar</th>
+            </tr>
+            <tr *ngFor="let disciplina of disciplinas; let i = index;">
+                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                {{disciplina.nome}}
+                </td>
+                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                {{disciplina.descr}}
+                </td>
+                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                    <span *ngFor="let sala of salas;">
+                    <a *ngIf="sala.id === (i+1)">
+                    {{sala.numero}}
+                    </a>
+                    </span>
+                </td>
+                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                <span *ngFor="let sala of salas; let j = index">
+                    <a *ngIf="sala.id === (i+1)">
+                    {{sala.andar}}
+                    </a>
+                </span>
+                </td>
+            </tr>
+        </table>
+      </div>
+
+    <!-- Disciplinas -->
     <table class="table table-striped table-sm">
-    <!--    <ng-container *ngFor="let curso of cursos">
-            <td *ngFor="let item of curso.items">{{item}}
-            </td>
-            <td>
-            <tr *ngFor="let sala of curso.salas"><td>{{sala}}</tr>
-            </td>
-        </ng-container>
-        -->
+
     </table>

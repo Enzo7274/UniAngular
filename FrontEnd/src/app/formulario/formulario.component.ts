@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
+  usuarioLogado = "false";
 
+  aoClicarLogin(){
+   this.usuarioLogado = "true";
+   
+  }
+
+  aoClicarSair(){
+    this.usuarioLogado = "false";
+   }
+
+  aoClicarDashboard(){
+    alert("ô o tumalakakkkkkkkkkkkkkk");
+  }
+
+  aoClicarEditarCursos(){
+    alert("eita preula. não programei isso ainda");
+  }
 }
