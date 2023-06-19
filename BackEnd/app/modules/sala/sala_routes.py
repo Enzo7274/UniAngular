@@ -1,28 +1,28 @@
-from app.modules.curso.curso_service import CursoService
+from app.modules.sala.sala_service import SalaService
 from app.utils.security import jwtDecode
 from flask import abort, Blueprint, jsonify, request, Response
 from flask_cors import CORS, cross_origin
 import requests
 import json
 
-curso_routes = Blueprint("curso", __name__)
-cursoDAO = CursoService()
+sala_routes = Blueprint("sala", __name__)
+salaDAO = SalaService()
 
-@curso_routes.route("/api/v1/curso/<string:id>")
+@sala_routes.route("/api/v1/sala/<string:id>")
 @cross_origin()
-def get_curso(id):
+def get_sala(id):
     try:
         if 'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                curso = cursoDAO.getCurso(id)
-                if curso != None:
-                    cursoObj = {}
-                    cursoObj["id"]=curso[0]
-                    cursoObj["nome"]=curso[1]
-                    cursoObj["dscr"]=curso[2]
-                    return jsonify(cursoObj)
-                return {"message":"Curso não localizado"},500
+                sala = salaDAO.getSala(id)
+                if sala != None:
+                    salaObj = {}
+                    salaObj["id"]=sala[0]
+                    salaObj["numSala"]=sala[1]
+                    salaObj["andar"]=sala[2]
+                    return jsonify(salaObj)
+                return {"message":"Sala não localizado"},500
             else:
                 return {"message":"Sem permissão"},500
         else:
@@ -30,23 +30,23 @@ def get_curso(id):
     except Exception as e:
         return{"message":str(e)},500
 
-@curso_routes.route("/api/v1/cursos")
+@sala_routes.route("/api/v1/salas")
 @cross_origin()
-def get_cursos():
+def get_salas():
     try:
         if'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                cursos = cursoDAO.getCursos()
-                listaCursos=[]
-                if len(cursos) > 0:
-                    for curso in cursos:
-                        cursoObj = {}
-                        cursoObj["id"]=curso[0]
-                        cursoObj["nome"]=curso[1]
-                        cursoObj["dscr"]=curso[2]
-                        listaCursos.append(cursoObj)
-                    return jsonify(listaCursos)
+                salas = salaDAO.getSalas()
+                listaSalas=[]
+                if len(salas) > 0:
+                    for sala in salas:
+                        salaObj = {}
+                        salaObj["id"]=sala[0]
+                        salaObj["numSala"]=sala[1]
+                        salaObj["andar"]=sala[2]
+                        listaSalas.append(salaObj)
+                    return jsonify(listaSalas)
                 else:
                     return{"message":"Sem permissão"},500
             else:
@@ -54,19 +54,19 @@ def get_cursos():
     except Exception as e:
         return {"message":str(e)},500
     
-@curso_routes.route("/api/v1/curso", methods=['POST'])
+@sala_routes.route("/api/v1/sala", methods=['POST'])
 @cross_origin()
 def save():
     try:
         if 'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                if request.json and "curso" in request.json:
-                    curso = request.json["curso"]
-                    cursoDAO.save(curso)
-                    return {"message":"Curso salvo com sucesso"}, 200
+                if request.json and "sala" in request.json:
+                    sala = request.json["sala"]
+                    salaDAO.save(sala)
+                    return {"message":"Sala salvo com sucesso"}, 200
                 else:
-                    return {"message":"O campo curso está vazio"}, 500
+                    return {"message":"O campo sala está vazio"}, 500
             else:
                 return {"message":"Sem permissão"},500
         else:
@@ -74,17 +74,17 @@ def save():
     except Exception as e:
         return {"message":str(e)},500
 
-@curso_routes.route("/api/v1/curso/<string:id>", methods=['DELETE'])
+@sala_routes.route("/api/v1/sala/<string:id>", methods=['DELETE'])
 @cross_origin()
 def remove(id):
     try:
         if 'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                retorno = cursoDAO.remove(id)
+                retorno = salaDAO.remove(id)
                 if retorno == 0:
-                    return {"message":"O curso não foi removido"},500
-                return {"message":"Curso removido com sucesso"},200
+                    return {"message":"O sala não foi removido"},500
+                return {"message":"Sala removido com sucesso"},200
             else:
                 return {"message":"Sem permissão"},500
         else:

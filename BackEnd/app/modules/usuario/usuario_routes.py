@@ -39,7 +39,7 @@ def get_usuarios():
         if'Authorization' in request.headers:
             decoded_token = jwtDecode(request.headers['Authorization'])
             if('username' in decoded_token):
-                usuarios = usuarioDAO.getUsuario()
+                usuarios = usuarioDAO.getUsuarios()
                 listaUsuarios=[]
                 if len(usuarios) > 0:
                     for usuario in usuarios:
