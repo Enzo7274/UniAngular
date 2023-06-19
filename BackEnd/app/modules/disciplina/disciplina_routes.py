@@ -78,6 +78,25 @@ def save():
     except Exception as e:
         return {"message":str(e)},500
 
+@disciplina_routes.route("/api/v1/disciplina", methods=["PUT"])
+def update_disciplina():
+    try:
+        if 'Authorization' in request.headers:
+            decoded_token = jwtDecode(request.headers['Authorization'])
+            if('username' in decoded_token):
+                    if request.json and "disciplina" in request.json:
+                        disciplina = request.json["disciplina"]
+                        disciplinaDAO.update(disciplina)
+                        return {"message":"Disciplina atualizado com sucesso"}, 200
+                    else:
+                        return {"message":"O campo disciplina está vazio"}, 500
+            else:
+                    return {"message":"Sem permissão"},500
+        else:
+                return {"message":"Sem permissão"},500
+    except Exception as e:
+        return {"message":str(e)},500
+
 @disciplina_routes.route("/api/v1/disciplina/<string:id>", methods=['DELETE'])
 @cross_origin()
 def remove(id):

@@ -74,6 +74,25 @@ def save():
     except Exception as e:
         return {"message":str(e)},500
 
+@curso_routes.route("/api/v1/curso", methods=["PUT"])
+def update_curso():
+    try:
+        if 'Authorization' in request.headers:
+            decoded_token = jwtDecode(request.headers['Authorization'])
+            if('username' in decoded_token):
+                    if request.json and "curso" in request.json:
+                        curso = request.json["curso"]
+                        cursoDAO.update(curso)
+                        return {"message":"Curso atualizado com sucesso"}, 200
+                    else:
+                        return {"message":"O campo curso está vazio"}, 500
+            else:
+                    return {"message":"Sem permissão"},500
+        else:
+                return {"message":"Sem permissão"},500
+    except Exception as e:
+        return {"message":str(e)},500
+
 @curso_routes.route("/api/v1/curso/<string:id>", methods=['DELETE'])
 @cross_origin()
 def remove(id):

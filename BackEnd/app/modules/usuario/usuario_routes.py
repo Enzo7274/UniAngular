@@ -78,6 +78,25 @@ def save():
     except Exception as e:
         return {"message":str(e)},500
 
+@usuario_routes.route("/api/v1/usuario", methods=["PUT"])
+def update_usuario():
+    try:
+        if 'Authorization' in request.headers:
+            decoded_token = jwtDecode(request.headers['Authorization'])
+            if('username' in decoded_token):
+                    if request.json and "usuario" in request.json:
+                        usuario = request.json["usuario"]
+                        usuarioDAO.update(usuario)
+                        return {"message":"Usuário atualizado com sucesso"}, 200
+                    else:
+                        return {"message":"O campo usuário está vazio"}, 500
+            else:
+                    return {"message":"Sem permissão"},500
+        else:
+                return {"message":"Sem permissão"},500
+    except Exception as e:
+        return {"message":str(e)},500
+
 @usuario_routes.route("/api/v1/usuario/<string:id>", methods=['DELETE'])
 @cross_origin()
 def remove(id):
