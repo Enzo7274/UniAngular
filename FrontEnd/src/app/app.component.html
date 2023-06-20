@@ -2,14 +2,23 @@
   <!-- Página Principal -->
   <div id="mainDiv">
     <header id="headerStyle">
-      <h3>Bem vindo, Administrador.</h3>
-      <button id="botaoLogin" class="btn btn-primary" (click)="aoClicarLogin()">Login</button>
+      <img src="../assets/images/logo.jpeg">
+      <h1 id="unifanTitle">PORTAL UNIFAN</h1>
+      <h3 *ngIf="logadoComoAdmin">Bem vindo, Administrador.</h3>
+      <button id="botaoLogin" class="btn btn-primary" *ngIf="!logadoComoAdmin" (click)="logadoComoAdmin=true">Login</button>
+      <button id="botaoSair" class="btn btn-primary" *ngIf="logadoComoAdmin" (click)="logadoComoAdmin=false">Sair</button>
+      <button id="botaoEditar" class="btn btn-primary" *ngIf="!modoEditar && logadoComoAdmin" (click)="modoEditar=true">Editar Cursos</button>
+      <button id="botaoVoltar" class="btn btn-primary" *ngIf="modoEditar" (click)="modoEditar=false">Voltar</button>
     </header>
     <!-- Tabela -->
+    <div *ngIf="!modoEditar">
     <app-tabela></app-tabela>
+    </div>
     <!-- Editar -->
-    <div *ngIf="logado">
-    <app-editacurso></app-editacurso>
-  </div>
+    <div *ngIf="modoEditar">
+      <div *ngIf="logadoComoAdmin">
+        <app-editacurso></app-editacurso>
+      </div>
+    </div>
   </div>
 </html>
