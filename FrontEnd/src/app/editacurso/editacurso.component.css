@@ -2,3 +2,23 @@
     background-color:rgb(76, 163, 197);
     padding: 5px 0px 5px 5px;
 }
+.classe-cursos{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.classe-disciplinas{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.classe-salas{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.classe-usuarios{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
