@@ -69,11 +69,23 @@ export class EditacursoComponent {
   }
 
   onAdicionarCurso() {
-    // altera o curso selecionadoe
-    //let curso = Object.assigtn()   
+    const input = document.getElementById("campo-nome-curso") as HTMLInputElement;
+    
+    const nomeCurso = input!.value
+    
+    const input2 = document.getElementById("campo-dscr-curso") as HTMLInputElement;
+    
+    const dscrCurso = input2!.value
+    
+    let cursoArr = [];
+    cursoArr.push(nomeCurso);
+    cursoArr.push(dscrCurso);
+    
+    
+    let curso = Object.assign(Array.from(cursoArr))   
     
 
-    //this.cursoService.addCurso(curso).subscribe(curso => this.cursos.push(curso));
+  this.cursoService.addCurso(curso).subscribe(curso => this.cursos.push(curso));
     
   }
 
