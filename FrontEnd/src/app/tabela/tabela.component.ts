@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Curso } from '../curso';
+import { Curso } from '../models/curso.model';
 import { Cursos } from '../lista-cursos';
-import { Disciplina } from '../disciplina';
+import { Disciplina } from '../models/disciplina.model';
 import { Disciplinas } from '../lista-disciplinas';
-import { Sala } from '../sala';
+import { Sala } from '../models/sala.model';
 import { Salas } from '../lista-salas';
 
 @Component({

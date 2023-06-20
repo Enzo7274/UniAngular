@@ -1,4 +1,4 @@
-import { Sala } from './sala';
+import { Sala } from './models/sala.model';
 
 export const Salas: Sala[] = [
   { id: 1, numero: 15, andar: 2},

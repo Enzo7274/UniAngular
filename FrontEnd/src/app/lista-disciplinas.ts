@@ -1,4 +1,4 @@
-import { Disciplina } from './disciplina';
+import { Disciplina } from './models/disciplina.model';
 
 export const Disciplinas: Disciplina[] = [
   { id: 1, nome: 'Tecnologias da Web', descr: 'Argamassa Digital', sala: 1},

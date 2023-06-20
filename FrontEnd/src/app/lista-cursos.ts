@@ -1,4 +1,4 @@
-import { Curso } from './curso';
+import { Curso } from './models/curso.model';
 
 export const Cursos: Curso[] = [
   { id: 12, nome: 'Análise e Desenvolvimento de Sistemas', descr: 'Pedreiro Digital', discp: [1,2]},
