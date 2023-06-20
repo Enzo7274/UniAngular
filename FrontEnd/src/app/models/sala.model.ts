@@ -1,11 +1,11 @@
 export class Sala {
     id: number;
-    numero: number;
+    numSala: number;
     andar: number;
 
-    constructor(id: number, numero: number, andar: number){
+    constructor(id: number, numSala: number, andar: number){
     this.id = id;
-    this.numero = numero;
+    this.numSala = numSala;
     this.andar = andar;
     }
 }

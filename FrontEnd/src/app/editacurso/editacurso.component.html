@@ -1,0 +1,167 @@
+<!-- Tabela -->
+<div class="table-responsive small">
+    
+    
+    <!-- Selecionar Curso -->
+    <h2>Cursos</h2>
+    <ul class="classe-cursos">
+    <button type="button" (click)="exibirOpcoesCurso = true;">
+        <span class="name">Adicionar novo curso</span>
+    </button>
+    <li *ngFor="let curso of cursos">
+        <button [class.selected]="curso === cursoEscolhido" type="button" (click)="onSelectCurso(curso)">
+        <span class="name">{{curso.nome}}</span>
+        </button>
+    </li>
+    </ul>   
+
+    <div *ngIf="cursoEscolhido && !exibirOpcoesCurso">
+        <label for="campo-id-curso">ID: </label>
+        <input type="text" id="campo-id-curso" class="form-control" disabled="true" [(ngModel)]="cursoEscolhido.id">
+        <br>
+        <label for="campo-nome-curso">Nome do curso: </label>
+        <input type="text" id="campo-nome-curso" class="form-control" [(ngModel)]="cursoEscolhido.nome">
+        <br>
+        <label for="campo-dscr-curso">Disciplinas: </label>
+        <input type="text" id="campo-dscr-curso" class="form-control" [(ngModel)]="cursoEscolhido.dscr">
+        <br>
+        <button id="botao-salvar-curso" class="btn btn-primary">Salvar curso</button>
+        <button id="botao-remover-curso" class="btn btn-primary" (click)="onRemoverCurso(cursoEscolhido.id)">Remover curso {{cursoEscolhido.nome}}</button>
+    </div>
+    <div class="add-curso" *ngIf="exibirOpcoesCurso">
+        <label for="campo-nome-curso">Nome do curso: </label>
+        <input type="text" id="campo-nome-curso" class="form-control">
+        <br>
+        <label for="campo-dscr-curso">Disciplinas: </label>
+        <input type="text" id="campo-dscr-curso" class="form-control">
+        <br>
+        <button id="botao-salvar-curso" class="btn btn-primary" (click)="onAdicionarCurso()">Adicionar novo curso</button>
+    </div>
+    <hr>
+    <!-- Selecionar Disciplina -->
+    <h2>Disciplinas</h2>
+    <ul class="classe-disciplinas">
+    <button type="button" (click)="exibirOpcoesDisciplina = true;">
+        <span class="name">Adicionar nova disciplina</span>
+    </button>
+    <li *ngFor="let disciplina of disciplinas">
+        <button [class.selected]="disciplina === disciplinaEscolhida" type="button" (click)="onSelectDisciplina(disciplina)">
+        <span class="name">{{disciplina.nome}}</span>
+        </button>
+    </li>
+    </ul>
+    <div *ngIf="disciplinaEscolhida && !exibirOpcoesDisciplina">
+        <label for="campo-id-disciplina">ID: </label>
+        <input type="text" id="campo-id-disciplina" class="form-control" disabled="true" [(ngModel)]="disciplinaEscolhida.id">
+        <br>
+        <label for="campo-nome-disciplina">Nome da disciplina: </label>
+        <input type="text" id="campo-nome-disciplina" class="form-control" [(ngModel)]="disciplinaEscolhida.nome">
+        <br>
+        <label for="campo-dscr-disciplina">Descrição: </label>
+        <input type="text" id="campo-dscr-disciplina" class="form-control" [(ngModel)]="disciplinaEscolhida.dscr">
+        <br>
+        <label for="campo-curso-disciplina">Curso: </label>
+        <input type="text" id="campo-curso-disciplina" class="form-control" [(ngModel)]="disciplinaEscolhida.curso">
+        <br>
+        <label for="campo-sala-disciplina">Sala: </label>
+        <input type="text" id="campo-sala-disciplina" class="form-control" [(ngModel)]="disciplinaEscolhida.sala">       
+        <br>
+        <button id="botao-salvar-disciplina" class="btn btn-primary">Salvar disciplina</button>
+        <button id="botao-remover-disciplina" class="btn btn-primary" >Remover disciplina {{disciplinaEscolhida.nome}}</button>
+    </div>
+    <div *ngIf="exibirOpcoesDisciplina">
+        <label for="campo-nome-disciplina">Nome da disciplina: </label>
+        <input type="text" id="campo-nome-disciplina" class="form-control">
+        <br>
+        <label for="campo-dscr-disciplina">Descrição: </label>
+        <input type="text" id="campo-dscr-disciplina" class="form-control">
+        <br>
+        <label for="campo-curso-disciplina">Curso: </label>
+        <input type="text" id="campo-curso-disciplina" class="form-control">
+        <br>
+        <label for="campo-sala-disciplina">Sala: </label>
+        <input type="text" id="campo-sala-disciplina" class="form-control">       
+        <br>
+        <button id="botao-salvar-disciplina" class="btn btn-primary">Adicionar nova disciplina</button>
+    </div>
+    <hr>
+    <!-- Selecionar Salas -->
+    <h2>Salas</h2>
+    <ul class="classe-salas">
+    <button type="button" (click)="exibirOpcoesSala = true;">
+        <span class="name">Adicionar nova sala</span>
+        </button>
+    <li *ngFor="let sala of salas">
+        <button [class.selected]="sala === salaEscolhida" type="button" (click)="onSelectSala(sala)">
+        <span class="name">Sala {{sala.numSala}}</span>
+        </button>
+    </li>
+    </ul>
+    <div *ngIf="salaEscolhida && !exibirOpcoesSala">
+        <label for="campo-id-sala">ID: </label>
+        <input type="text" id="campo-id-sala" class="form-control" disabled="true" [(ngModel)]="salaEscolhida.id">
+        <br>
+        <label for="campo-nome-sala">Número da Sala: </label>
+        <input type="text" id="campo-nome-sala" class="form-control" [(ngModel)]="salaEscolhida.numSala">
+        <br>
+        <label for="campo-andar-sala">Andar: </label>
+        <input type="text" id="campo-andar-sala" class="form-control" [(ngModel)]="salaEscolhida.andar">
+        <br>
+        <button id="botao-salvar-andar" class="btn btn-primary">Salvar sala</button>
+        <button id="botao-remover-andar" class="btn btn-primary">Remover sala {{salaEscolhida.numSala}}</button>
+    </div>
+    <div *ngIf="exibirOpcoesSala">
+        <label for="campo-nome-sala">Número da Sala: </label>
+        <input type="text" id="campo-nome-sala" class="form-control">
+        <br>
+        <label for="campo-andar-sala">Andar: </label>
+        <input type="text" id="campo-andar-sala" class="form-control">
+        <br>
+        <button id="botao-salvar-andar" class="btn btn-primary">Adicionar nova sala</button>
+    </div>
+    <hr>
+    <h2>Usuários</h2>
+    <ul class="classe-usuarios">
+    <button type="button" (click)="exibirOpcoesUsuario = true;">
+        <span class="name">Adicionar novo usuario</span>
+    </button>
+    <li *ngFor="let usuario of usuarios">
+        <button [class.selected]="usuario === salaEscolhida" type="button" (click)="onSelectUsuario(usuario)">
+        <span class="name">{{usuario.nome}}</span>
+        </button>
+    </li>
+    </ul>
+    <div *ngIf="usuarioEscolhido && !exibirOpcoesUsuario">
+        <label for="campo-id-usuario">ID: </label>
+        <input type="text" id="campo-id-usuario" class="form-control" disabled="true" [(ngModel)]="usuarioEscolhido.id">
+        <br>
+        <label for="campo-nome-usuario">Nome do usuário: </label>
+        <input type="text" id="campo-nome-usuario" class="form-control" [(ngModel)]="usuarioEscolhido.nome">
+        <br>
+        <label for="campo-email-usuario">Email: </label>
+        <input type="text" id="campo-email-usuario" class="form-control" [(ngModel)]="usuarioEscolhido.email">
+        <br>
+        <label for="campo-login-usuario">Login: </label>
+        <input type="text" id="campo-login-usuario" class="form-control" [(ngModel)]="usuarioEscolhido.login">
+        <br>
+        <label for="campo-senha-usuario">Senha: </label>
+        <input type="password" id="campo-senha-usuario" class="form-control" disabled="true" [(ngModel)]="usuarioEscolhido.senha">
+        <br>
+        <button id="botao-salvar-usuario" class="btn btn-primary">Salvar usuário {{usuarioEscolhido.nome}}</button>
+        <button id="botao-remover-usuario" class="btn btn-primary">Remover usuário</button>
+    </div>
+    <div *ngIf="exibirOpcoesUsuario">
+        <label for="campo-nome-usuario">Nome do usuário: </label>
+        <input type="text" id="campo-nome-usuario" class="form-control">
+        <br>
+        <label for="campo-email-usuario">Email: </label>
+        <input type="text" id="campo-email-usuario" class="form-control">
+        <br>
+        <label for="campo-login-usuario">Login: </label>
+        <input type="text" id="campo-login-usuario" class="form-control">
+        <br>
+        <label for="campo-senha-usuario">Senha: </label>
+        <input type="password" id="campo-senha-usuario" class="form-control">
+        <br>
+        <button id="botao-salvar-usuario" class="btn btn-primary">Salvar novo usuário</button>
+    </div>

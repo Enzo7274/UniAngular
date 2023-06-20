@@ -1,13 +1,13 @@
 export class Curso {
     id: number;
     nome: string;
-    descr: string;
+    dscr: string;
     discp: any;
 
-    constructor(id: number, nome: string, email: string, discp: any){
+    constructor(id: number, nome: string, dscr: string, discp: any){
     this.id = id;
     this.nome = nome;
-    this.descr = email;
+    this.dscr = dscr;
     this.discp = discp;
     }
-   }
+}
