@@ -15,7 +15,7 @@
     </li>
     </ul>   
 
-    <div *ngIf="cursoEscolhido && !exibirOpcoesCurso">
+    <div *ngIf="cursoEscolhido && !exibirOpcoesCurso" class="storagedContentStyle">
         <label for="campo-id-curso">ID: </label>
         <input type="text" id="campo-id-curso" class="form-control" disabled="true" [(ngModel)]="cursoEscolhido.id">
         <br>
@@ -50,7 +50,7 @@
         </button>
     </li>
     </ul>
-    <div *ngIf="disciplinaEscolhida && !exibirOpcoesDisciplina">
+    <div *ngIf="disciplinaEscolhida && !exibirOpcoesDisciplina" class="storagedContentStyle">
         <label for="campo-id-disciplina">ID: </label>
         <input type="text" id="campo-id-disciplina" class="form-control" disabled="true" [(ngModel)]="disciplinaEscolhida.id">
         <br>
@@ -69,7 +69,7 @@
         <button id="botao-salvar-disciplina" class="btn btn-primary" (click)="onEditarDisciplina()">Salvar disciplina</button>
         <button id="botao-remover-disciplina" class="btn btn-primary" (click)="onRemoverDisciplina(disciplinaEscolhida.id)">Remover disciplina {{disciplinaEscolhida.nome}}</button>
     </div>
-    <div *ngIf="exibirOpcoesDisciplina">
+    <div *ngIf="exibirOpcoesDisciplina" class="add-disciplina">
         <label for="campo-nome-disciplina">Nome da disciplina: </label>
         <input type="text" id="campo-nome-disciplina" class="form-control">
         <br>
@@ -97,7 +97,7 @@
         </button>
     </li>
     </ul>
-    <div *ngIf="salaEscolhida && !exibirOpcoesSala">
+    <div *ngIf="salaEscolhida && !exibirOpcoesSala" class="storagedContentStyle">
         <label for="campo-id-sala">ID: </label>
         <input type="text" id="campo-id-sala" class="form-control" disabled="true" [(ngModel)]="salaEscolhida.id">
         <br>
@@ -110,7 +110,7 @@
         <button id="botao-salvar-andar" class="btn btn-primary" (click)="onEditarSala()">Salvar sala</button>
         <button id="botao-remover-andar" class="btn btn-primary" (click)="onRemoverSala(salaEscolhida.id)">Remover sala {{salaEscolhida.numSala}}</button>
     </div>
-    <div *ngIf="exibirOpcoesSala">
+    <div *ngIf="exibirOpcoesSala" class="add-sala">
         <label for="campo-nome-sala">Número da Sala: </label>
         <input type="text" id="campo-nome-sala" class="form-control">
         <br>
@@ -131,7 +131,7 @@
         </button>
     </li>
     </ul>
-    <div *ngIf="usuarioEscolhido && !exibirOpcoesUsuario">
+    <div *ngIf="usuarioEscolhido && !exibirOpcoesUsuario" class="storagedContentStyle">
         <label for="campo-id-usuario">ID: </label>
         <input type="text" id="campo-id-usuario" class="form-control" disabled="true" [(ngModel)]="usuarioEscolhido.id">
         <br>
@@ -150,7 +150,7 @@
         <button id="botao-salvar-usuario" class="btn btn-primary" (click)="onEditarUsuario()">Salvar usuário {{usuarioEscolhido.nome}}</button>
         <button id="botao-remover-usuario" class="btn btn-primary" (click)="onRemoverUsuario(usuarioEscolhido.id)">Remover usuário</button>
     </div>
-    <div *ngIf="exibirOpcoesUsuario">
+    <div *ngIf="exibirOpcoesUsuario" class="add-usuario">
         <label for="campo-nome-usuario">Nome do usuário: </label>
         <input type="text" id="campo-nome-usuario" class="form-control">
         <br>
