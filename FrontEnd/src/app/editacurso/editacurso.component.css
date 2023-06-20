@@ -2,3 +2,43 @@
     background-color:rgb(76, 163, 197);
     padding: 5px 0px 5px 5px;
 }
+.classe-cursos{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.add-curso{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding: 10px 25px 10px 10px;
+}
+.classe-disciplinas{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.add-disciplina{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding: 10px 25px 10px 10px;
+}
+.classe-salas{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.add-sala{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding: 10px 25px 10px 10px;
+}
+.classe-usuarios{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.add-usuario{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding: 10px 25px 10px 10px;
+}
+.storagedContentStyle{
+    background-color:rgba(183, 213, 224, 0.747);
+    padding: 10px 25px 10px 10px;
+}
