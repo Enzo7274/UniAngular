@@ -5,10 +5,13 @@
       <img id="headerLogo" src="../assets/images/logo.jpeg">
       <h1 id="unifanTitle">PORTAL UNIFAN</h1>
       <h3>Bem vindo, Administrador.</h3>
+      <button id="botaoLogin" class="btn btn-primary" (click)="aoClicarLogin()">Login</button>
     </header>
     <!-- Tabela -->
     <app-tabela></app-tabela>
     <!-- Editar -->
+    <div *ngIf="logado">
     <app-editacurso></app-editacurso>
+  </div>
   </div>
 </html>

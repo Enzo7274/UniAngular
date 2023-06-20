@@ -15,42 +15,11 @@ import { UsuarioService } from './services/usuario.service';
 })
 export class AppComponent {
   title = 'FrontEnd';
+  editar = false;
+  static logado: boolean;
+  logado = false;
 
-  constructor(private cursoService: CursoService, private disciplinaService: DisciplinaService, private salaService: SalaService, private usuarioService: UsuarioService) {}
-
-  atualizarCursos() {
-    this.cursoService.getCursos().subscribe(cursos => {
-      return cursos;
-      }, error => {
-      console.log(error)
-      return Promise.resolve(false);
-    })
-    }
-
-    atualizarDisciplinas() {
-    this.disciplinaService.getDisciplinas().subscribe(disciplinas => {
-      return disciplinas;
-      }, error => {
-      console.log(error)
-      return Promise.resolve(false);
-    })
-    }
-
-    atualizarSalas() {
-    this.salaService.getSalas().subscribe(salas => {
-      return salas;
-      }, error => {
-      console.log(error)
-      return Promise.resolve(false);
-    })
-    }
-
-    atualizarUsuarios() {
-      this.usuarioService.getUsuarios().subscribe(usuarios => {
-        return usuarios;
-        }, error => {
-        console.log(error)
-        return Promise.resolve(false);
-      })
-      }
+  aoClicarLogin(){
+    this.logado = true;
+  }
 }
