@@ -1,7 +1,19 @@
 html
 {
  margin:0px;
- /*background-image: url('../assets/images/background.jpg');*/
+ background-image: url('../assets/images/background.jpg');
  background-size: 100%;
-
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-position-y:center;
+ background-color:whitesmoke;
+}
+#headerStyle{
+    background-color:rgb(40, 94, 163);
+    padding: 10px 0px 10px 10px;
+    font-family:'Times New Roman', Times, serif;
+    color:whitesmoke;
+}
+#mainDiv{
+    background-color:rgba(211, 247, 236, 0.26);
 }
