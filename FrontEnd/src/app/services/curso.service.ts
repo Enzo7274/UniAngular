@@ -39,7 +39,7 @@ export class CursoService {
 
   editCurso(cursoParam: Curso){
     let cursoComoJson = {"curso":cursoParam};
-    return this.http.put<any>(`${this.cursoUrl}}`, cursoComoJson, { "headers": this.headers })
+    return this.http.put<any>(`${this.cursoUrl}`, cursoComoJson, { "headers": this.headers })
     .subscribe({
     next: data => {
     return data;
