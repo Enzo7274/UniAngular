@@ -18,7 +18,6 @@
 
     <div *ngIf="cursoEscolhido">
         <h2>{{cursoEscolhido.nome | uppercase}}</h2>
-        <div>{{cursoEscolhido.descr}}</div>
 
         <table>
             <tr>
@@ -32,12 +31,12 @@
                 {{disciplina.nome}}
                 </td>
                 <td *ngIf="cursoEscolhido.discp.includes(i+1)">
-                {{disciplina.descr}}
+                {{disciplina.dscr}}
                 </td>
                 <td *ngIf="cursoEscolhido.discp.includes(i+1)">
                     <span *ngFor="let sala of salas;">
                     <a *ngIf="sala.id === (i+1)">
-                    {{sala.numero}}
+                    {{sala.numSala}}
                     </a>
                     </span>
                 </td>

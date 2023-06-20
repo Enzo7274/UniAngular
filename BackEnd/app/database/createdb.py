@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('./BackEnd/app/database/universidade.db')
+conn = sqlite3.connect('./universidade.db')
 
 cursor = conn.cursor()
 
