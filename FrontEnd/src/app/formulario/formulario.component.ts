@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-formulario',
@@ -6,15 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
-  usuarioLogado = "false";
 
   aoClicarLogin(){
-   this.usuarioLogado = "true";
+    
+    AppComponent.logado = true;
    
   }
 
   aoClicarSair(){
-    this.usuarioLogado = "false";
+    AppComponent.logado = false;
    }
 
   aoClicarDashboard(){
