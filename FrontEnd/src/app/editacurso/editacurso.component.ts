@@ -8,6 +8,7 @@ import { SalaService } from '../services/sala.service';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
 import { Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-editacurso',
@@ -69,25 +70,64 @@ export class EditacursoComponent {
   }
 
   onAdicionarCurso() {
+    //pegar valores
     const input = document.getElementById("campo-nome-curso") as HTMLInputElement;
-    
-    const nomeCurso = input!.value
-    
     const input2 = document.getElementById("campo-dscr-curso") as HTMLInputElement;
-    
+    const nomeCurso = input!.value
     const dscrCurso = input2!.value
     
-    let cursoArr = [];
-    cursoArr.push(nomeCurso);
-    cursoArr.push(dscrCurso);
-    
-    
-    let curso = Object.assign(Array.from(cursoArr))   
-    
+    //criar objeto
+    const novoCurso = {
+      nome: nomeCurso,
+      dscr: dscrCurso,
+      discp: 0,
+      id: 0
+    }
 
-  this.cursoService.addCurso(curso).subscribe(curso => this.cursos.push(curso));
+    //enviar objeto
+    this.cursoService.addCurso(novoCurso)//.subscribe(curso => this.cursos.push(curso));
     
+    //atualizar lista de cursos
+    this.cursoService.getCursos().subscribe(cursos => {
+      this.cursos = cursos;
+      }, error => {
+      console.log(error)
+      return Promise.resolve(false);
+    })
+
   }
+
+  onEditarCurso() {
+    //pegar valores para editar
+    const input = document.getElementById("campo-nome-curso") as HTMLInputElement;
+    const input2 = document.getElementById("campo-dscr-curso") as HTMLInputElement;
+    const input3 = document.getElementById("campo-id-curso") as HTMLInputElement;
+    const nomeCurso = input!.value
+    const dscrCurso = input2!.value
+    const idCurso = this.cursoEscolhido?.id || 0;
+    
+    //criar objeto
+    const novoCurso = {
+      nome: nomeCurso,
+      dscr: dscrCurso,
+      id: idCurso,
+      discp: ""
+    }
+
+    console.log(novoCurso);
+    //enviar objeto
+    this.cursoService.editCurso(novoCurso)//.subscribe(curso => this.cursos.push(curso));
+    
+    //atualizar lista de cursos
+    this.cursoService.getCursos().subscribe(cursos => {
+      this.cursos = cursos;
+      }, error => {
+      console.log(error)
+      return Promise.resolve(false);
+    })
+
+  }
+  
 
   ngOnInit(): void {
     this.cursoService.getCursos().subscribe(cursos => {
@@ -119,11 +159,6 @@ export class EditacursoComponent {
     })
 
   }
-
-    onEditarCurso(id: number) {
-      // altera o curso selecionado
-      //this.router.navigateByUrl('/curso/edit', {state: { idCurso: id }})
-    }
   
     onRemoverCurso(id: number) {
       this.cursoService.removeCurso(id);

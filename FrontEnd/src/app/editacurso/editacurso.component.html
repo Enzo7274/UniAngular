@@ -8,7 +8,7 @@
     <button type="button" (click)="exibirOpcoesCurso = true;">
         <span class="name">Adicionar novo curso</span>
     </button>
-    <li *ngFor="let curso of cursos">
+    <li *ngFor="let curso of cursos" #listaCursos>
         <button [class.selected]="curso === cursoEscolhido" type="button" (click)="onSelectCurso(curso)">
         <span class="name">{{curso.nome}}</span>
         </button>
@@ -22,17 +22,20 @@
         <label for="campo-nome-curso">Nome do curso: </label>
         <input type="text" id="campo-nome-curso" class="form-control" [(ngModel)]="cursoEscolhido.nome">
         <br>
-        <label for="campo-dscr-curso">Disciplinas: </label>
+        <label for="campo-dscr-curso">Descrição do curso: </label>
         <input type="text" id="campo-dscr-curso" class="form-control" [(ngModel)]="cursoEscolhido.dscr">
         <br>
-        <button id="botao-salvar-curso" class="btn btn-primary">Salvar curso</button>
+        <label for="campo-discp-curso">Disciplinas: </label>
+        <input type="text" id="campo-discp-curso" class="form-control" [(ngModel)]="cursoEscolhido.discp">
+        <br>
+        <button id="botao-salvar-curso" class="btn btn-primary" (click)="onEditarCurso()">Salvar curso</button>
         <button id="botao-remover-curso" class="btn btn-primary" (click)="onRemoverCurso(cursoEscolhido.id)">Remover curso {{cursoEscolhido.nome}}</button>
     </div>
     <div class="add-curso" *ngIf="exibirOpcoesCurso">
         <label for="campo-nome-curso">Nome do curso: </label>
         <input type="text" id="campo-nome-curso" class="form-control">
         <br>
-        <label for="campo-dscr-curso">Disciplinas: </label>
+        <label for="campo-dscr-curso">Disciplinas </label>
         <input type="text" id="campo-dscr-curso" class="form-control">
         <br>
         <button id="botao-salvar-curso" class="btn btn-primary" (click)="onAdicionarCurso()">Adicionar novo curso</button>
