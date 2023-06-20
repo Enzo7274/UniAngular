@@ -27,22 +27,22 @@
                 <th>Andar</th>
             </tr>
             <tr *ngFor="let disciplina of disciplinas; let i = index;">
-                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                <td *ngIf="discp.includes(i+1)">
                 {{disciplina.nome}}
                 </td>
-                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                <td *ngIf="discp.includes(i+1)">
                 {{disciplina.dscr}}
                 </td>
-                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
-                    <span *ngFor="let sala of salas;">
-                    <a *ngIf="sala.id === (i+1)">
+                <td *ngIf="discp.includes(i+1)">
+                    <span *ngFor="let sala of salas;let j = index">
+                    <a *ngIf="j === i">
                     {{sala.numSala}}
                     </a>
                     </span>
                 </td>
-                <td *ngIf="cursoEscolhido.discp.includes(i+1)">
+                <td *ngIf="discp.includes(i+1)">
                 <span *ngFor="let sala of salas; let j = index">
-                    <a *ngIf="sala.id === (i+1)">
+                    <a *ngIf="j === i">
                     {{sala.andar}}
                     </a>
                 </span>
@@ -50,8 +50,3 @@
             </tr>
         </table>
       </div>
-
-    <!-- Disciplinas -->
-    <table class="table table-striped table-sm">
-
-    </table>

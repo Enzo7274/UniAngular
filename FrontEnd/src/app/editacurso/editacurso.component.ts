@@ -7,8 +7,6 @@ import { Sala } from '../models/sala.model';
 import { SalaService } from '../services/sala.service';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
-import { Router } from '@angular/router';
-import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-editacurso',
@@ -83,7 +81,6 @@ export class EditacursoComponent {
     const novoCurso = {
       nome: nomeCurso,
       dscr: dscrCurso,
-      discp: 0,
       id: 0
     }
 
@@ -112,7 +109,6 @@ export class EditacursoComponent {
       nome: nomeCurso,
       dscr: dscrCurso,
       id: idCurso,
-      discp: ""
     }
 
     console.log(novoCurso);
@@ -292,7 +288,7 @@ export class EditacursoComponent {
 
     //validar senha
     
-    if (senhaUsuario == reinserirSenhaUsuario) {this.senhasConferem = true}
+    if (senhaUsuario !== reinserirSenhaUsuario) {this.senhasConferem = false} else {this.senhasConferem = true}
     console.log(this.senhasConferem);
     
     if (this.senhasConferem == true) {
