@@ -19,10 +19,19 @@ html
     align-content:center;
     display:flex;
 }
+#headerLogo{
+    border-radius: 100px 100px 100px 100px;
+}
 #unifanTitle{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight:bolder;
 }
 #mainDiv{
     background-color:rgba(211, 247, 236, 0.26);
+}
+#botaoEditar{
+    margin-top:10px;
+}
+#botaoVoltar{
+    margin-top:10px;
 }
