@@ -15,11 +15,15 @@ import { UsuarioService } from './services/usuario.service';
 })
 export class AppComponent {
   title = 'FrontEnd';
-  editar = false;
-  static logado: boolean;
-  logado = false;
+  modoEditar = false;
+  logadoComoAdmin = false;
 
   aoClicarLogin(){
-    this.logado = true;
+    this.logadoComoAdmin = true;
   }
+
+  aoClicarEditar(){
+    this.modoEditar = true;
+  }
+
 }
