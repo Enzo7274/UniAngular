@@ -1,0 +1,13 @@
+<h3>Autenticação</h3>
+<form [ngClass]="class_validate" id="form_login" (ngSubmit)="logar()">
+ <div class="form-group">
+ <input type="text" matInput class="form-control" placeholder="usuário" formControlName="username"
+required>
+ </div>
+ <div class="form-group">
+ <input type="password" class="form-control" placeholder="senha" formControlName="password" required>
+ </div>
+ <div class="form-group">
+ <input type="submit" mat-button value="Logar" class="btn">
+ </div>
+</form>

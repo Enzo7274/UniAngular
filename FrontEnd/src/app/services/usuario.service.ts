@@ -62,4 +62,18 @@ export class UsuarioService {
     });
     }
 
+  realizarLogin(UsuarioParam: Usuario) {
+      let UsuarioComoJson = {"usuario":UsuarioParam};
+      this.http.post<any>(`${this.usuarioUrl}`, UsuarioComoJson, { "headers": this.headers })
+      .subscribe({
+      next: data => {
+      return data;
+      },
+      error: error => {
+      console.error('Houve um erro:', error);
+      }
+      });
+      }
+  
+
 }

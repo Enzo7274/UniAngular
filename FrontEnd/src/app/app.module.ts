@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { TabelaComponent } from './tabela/tabela.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditacursoComponent } from './editacurso/editacurso.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabelaComponent,
-    EditacursoComponent
+    EditacursoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

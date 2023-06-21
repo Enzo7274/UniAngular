@@ -5,8 +5,18 @@
       <img src="../assets/images/logo.jpeg">
       <h1 id="unifanTitle">PORTAL UNIFAN</h1>
       <h3 *ngIf="logadoComoAdmin">Bem vindo, Administrador.</h3>
-      <button id="botaoLogin" class="btn btn-primary" *ngIf="!logadoComoAdmin" (click)="logadoComoAdmin=true">Login</button>
-      <button id="botaoSair" class="btn btn-primary" *ngIf="logadoComoAdmin" (click)="logadoComoAdmin=false">Sair</button>
+      <div *ngIf="logado"><h2 *ngIf="!logadoComoAdmin">Bem vindo, {{usuarios[usuarioIdLogin-1].nome}}</h2></div>
+      <!-- Form de Login -->
+      <div>
+        <form id="form_login" *ngIf="!logado">
+          <label for="campo-username">Login: </label>
+          <input type="text" class="form-control" placeholder="Usuário" id="campo-username">
+          <label for="campo-password">Senha: </label>
+          <input type="password" class="form-control" placeholder="Senha" id="campo-password">
+          <button id="botaoLogin" class="btn btn-primary" (click)="onRealizarLogin()">Login</button>
+        </form>
+      </div>
+      <button id="botaoSair" class="btn btn-primary" *ngIf="logado" (click)="logado=false; logadoComoAdmin=false">Sair</button>
       <button id="botaoEditar" class="btn btn-primary" *ngIf="!modoEditar && logadoComoAdmin" (click)="modoEditar=true">Editar Cursos</button>
       <button id="botaoVoltar" class="btn btn-primary" *ngIf="modoEditar" (click)="modoEditar=false">Voltar</button>
     </header>
